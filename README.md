@@ -14,7 +14,7 @@ I will be working on kubernetes kubeadm cluster hosted on EC2 instances like in 
 
 First thing to do is Create a Role with permission to use EBS and EFS and attach it to EC2 instances 
 
-Note : the EFS-policy is a custom policy (JSON) that i will leave in the end in the Project YAML File : 
+Note : the EFS-policy is a custom policy (JSON) that i will leave in the Yaml-Config.yaml file : 
 
 ![Capture d'écran 2024-08-25 190048](https://github.com/user-attachments/assets/c5c4010d-9b40-41cd-8ffe-a971ae098628)
 
@@ -27,7 +27,11 @@ Most important thing to do is download the aws CSI on all nodes ( installing it 
 
 ![Capture d'écran 2024-08-25 190851](https://github.com/user-attachments/assets/3c198cea-0faf-46a2-a94f-dd3241e44623)
 
-WordPress will be using the secret to acces mySQL .
+WordPress will be using the secret to acces mySQL . (creating a secret using base64)
+
+![Uploading Capture d'écran 2024-08-25 154321.png…]()
+
+
 
 Creating SC , PV , PVC , SVC , Deployements ,Secret , and EFS manually : 
 
