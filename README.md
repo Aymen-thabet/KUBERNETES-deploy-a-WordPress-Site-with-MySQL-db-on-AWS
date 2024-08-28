@@ -1,4 +1,6 @@
-![Capture d'écran 2024-08-25 204718](https://github.com/user-attachments/assets/51cb9d04-bf1a-4e67-ae5f-ec6768da4d45)# Using-Kubernetes-to-deploy-a-WordPress-Site-with-MySQL-db-on-AWS
+* Using-Kubernetes-to-deploy-a-WordPress-Site-with-MySQL-db-on-AWS *
+
+
 This is a capstone project of my kubernetes self-paced learning Journey .
 
 This is the architecture of the project !
@@ -11,6 +13,11 @@ I will be working on kubernetes kubeadm cluster hosted on EC2 instances like in 
 ![Capture d'écran 2024-08-25 185226](https://github.com/user-attachments/assets/ad0f344f-2871-4649-8b9c-aec856defec4)
 
 First thing to do is Create a Role with permission to use EBS and EFS and attach it to EC2 instances 
+
+Note : the EFS-policy is a custom policy (JSON) that i will leave in the end in the Project YAML File : 
+
+![Capture d'écran 2024-08-25 190048](https://github.com/user-attachments/assets/c5c4010d-9b40-41cd-8ffe-a971ae098628)
+
 
 We will be using aws EFS for WordPress website since its a ReadWriteMany type of storage and I will be deploying the website on more than a Pod ,
 also EBS for MySQl since it will be only on one Pod 
@@ -71,12 +78,8 @@ First Thing to do is Creating a target group that groups all my Ec2 and wich for
 
 ![Capture d'écran 2024-08-25 204718](https://github.com/user-attachments/assets/58c8e5b7-7cb0-4eb0-9fcb-4272dbaa1c85)
 
- Then Creating ALB and linking it to the Target Group
+ Then Creating ALB and linking it to the Target Group (Mapping the ALB to 2 AZ) : 
  
-![Capture d'écran 2024-08-25 204718](https://github.com/user-attachments/assets/014dfca7-ef6a-40bf-8c4e-b267fc1f3187)
-
-Mapping the ALB to 2 AZ 
-
 ![Capture d'écran 2024-08-25 210304](https://github.com/user-attachments/assets/2d2eca12-ab44-48d1-b008-8c573f94f13f)
 
 ![Capture d'écran 2024-08-25 210633](https://github.com/user-attachments/assets/6123c7e6-a457-4c90-9890-a01d37d5f13e)
@@ -84,6 +87,12 @@ Mapping the ALB to 2 AZ
 FINALLY ! accessing the WordPress with ALB dns name ! 
 
 ![image](https://github.com/user-attachments/assets/3a69d8d4-0be7-4097-b4d0-0c78e1375814)
+
+
+
+
+ 
+
 
 
 
